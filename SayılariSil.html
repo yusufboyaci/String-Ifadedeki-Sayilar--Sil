@@ -15,23 +15,47 @@
   </head>
   <body>
     <div id="app">
-      <input type="text" v-model="deger"/>
       <br />
-      <buttton class="btn btn-primary">Rakamları Sil</buttton>
-
+      <br />
+      <input type="text mt-5" v-model="deger" />
+      <br />
+      <br />
+      <button @click="RakamlariSil" class="btn btn-primary">Rakamları Sil</button>
+      <br /><br />
       {{deger}}
     </div>
   </body>
 </html>
 
 <script>
-    new Vue({
-        el:"#app",
-        data:{
-            deger:"",
-        },
-        methods:{
-
-        }
-    })
+  new Vue({
+    el: "#app",
+    data: {
+      deger: "",
+    },
+    methods: {
+      RakamlariSil() {
+        let list = [];
+        this.deger.split("").forEach((element) => {
+          if (
+            element == 1 ||
+            element == 2 ||
+            element == 3 ||
+            element == 4 ||
+            element == 5 ||
+            element == 6 ||
+            element == 7 ||
+            element == 8 ||
+            element == 9 ||
+            element == 0 ||
+            element == " "
+          ) {
+            element = "";
+          }
+          list.push(element);
+        });
+        this.deger = list.join("");
+      },
+    },
+  });
 </script>
